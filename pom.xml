@@ -13,6 +13,20 @@
     <modules>
         <module>spring-websocket-example-server</module>
         <module>spring-websocket-example-client</module>
-    </modules>    
-
+        <module>spring-websocket-example-share</module>
+    </modules>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.3.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.chtijbug.spring.websocket</groupId>
+                <artifactId>spring-websocket-example-share</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

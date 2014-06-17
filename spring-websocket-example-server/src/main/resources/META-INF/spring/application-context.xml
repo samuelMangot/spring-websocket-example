@@ -10,6 +10,7 @@
 
     <websocket:handlers>
         <websocket:mapping path="/myHandler" handler="myHandler" />
+        <websocket:mapping path="/myMessageHandler" handler="myMessageHandler" />
         <websocket:handshake-handler ref="handshakeHandler"/>
     </websocket:handlers>
 
@@ -19,7 +20,9 @@
 
     <bean id="upgradeStrategy" class="org.springframework.web.socket.server.standard.TomcatRequestUpgradeStrategy">
     </bean>
-    <bean id="myHandler" class="org.chtijbug.spring.websocket.server.MyHandler"/>
+    <bean id="myHandler" class="org.chtijbug.spring.websocket.server.MyHandler" />
+
+    <bean id="myMessageHandler" class="org.chtijbug.spring.websocket.server.MyMessageHandler" />
 
     <bean id="serverFactory" class="org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean">
         <property name="maxTextMessageBufferSize" value="8192"/>

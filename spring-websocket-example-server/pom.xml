@@ -18,6 +18,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.chtijbug.spring.websocket</groupId>
+            <artifactId>spring-websocket-example-share</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-websocket</artifactId>
             <version>${spring.version}</version>
@@ -50,6 +54,10 @@
             <artifactId>tomcat-websocket-api</artifactId>
             <version>7.0.53</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
     </dependencies>
 

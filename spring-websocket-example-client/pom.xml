@@ -12,6 +12,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.chtijbug.spring.websocket</groupId>
+            <artifactId>spring-websocket-example-share</artifactId>
+        </dependency>
+        <dependency>
             <groupId>javax.websocket</groupId>
             <artifactId>javax.websocket-api</artifactId>
             <version>1.0</version>
@@ -37,6 +41,7 @@
             <artifactId>tyrus-container-grizzly-client</artifactId>
             <version>1.6</version>
         </dependency>
+
     </dependencies>
 
 </project>
