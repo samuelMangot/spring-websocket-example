@@ -6,10 +6,7 @@ public class MyMessage {
 
     public static class MyMessageStream extends JSONCoder<MyMessage> {
         public MyMessageStream() {
-        }
-
-        public MyMessageStream(Class<MyMessage> clazz) {
-            set_type(clazz);
+            set_type(MyMessage.class);
         }
     }
 
