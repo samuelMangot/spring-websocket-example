@@ -17,6 +17,12 @@
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.google.sitebricks</groupId>
+            <artifactId>slf4j</artifactId>
+            <version>0.8.3</version>
+        </dependency>
         <dependency>
             <groupId>org.chtijbug.spring.websocket</groupId>
             <artifactId>spring-websocket-example-share</artifactId>
