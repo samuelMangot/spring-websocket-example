@@ -85,7 +85,7 @@ public class WebSocketClient {
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        final WebSocketClient clientEndPoint = new WebSocketClient(new URI("ws://localhost:8080/myHandler"));
+        final WebSocketClient clientEndPoint = new WebSocketClient(new URI("ws://localhost:8080/server/myHandler"));
         clientEndPoint.addMessageHandler(new MessageHandler() {
             @Override
             public void handleMessage(String message) {

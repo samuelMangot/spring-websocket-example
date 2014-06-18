@@ -90,7 +90,7 @@ public class WebSocketMyMessageClient {
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        final WebSocketMyMessageClient clientEndPoint = new WebSocketMyMessageClient(new URI("ws://localhost:8080/myMessageHandler"));
+        final WebSocketMyMessageClient clientEndPoint = new WebSocketMyMessageClient(new URI("ws://localhost:8080/server/myMessageHandler"));
         clientEndPoint.addMessageHandler(new MessageHandler() {
             @Override
             public void handleMessage(MyMessage message) {
