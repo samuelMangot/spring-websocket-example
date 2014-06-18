@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Test</title>
+
+    <script src="app/libs/stomp-websocket-master/lib/stomp.js" ></script>
+    <script src="app/libs/sockjs-0.3.4.min.js" ></script>
+
+    <script language="JavaScript">
+        var socket = new SockJS("/server/stomp");
+        var stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, function(frame) {
+            alert("Connected to broker");
+            stompClient.subscribe('/server/topic/greetings', function(greeting){
+                alert(greeting);
+            });
+        });
+        //stompClient.send("/server/stomp",{}, "sam");
+
+    </script>
+</head>
+<body>
+Test
+</body>
+</html>
