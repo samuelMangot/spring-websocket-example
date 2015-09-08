@@ -1,6 +1,8 @@
 package org.chtijbug.spring.websocket.client;
 
 import org.glassfish.tyrus.client.ClientManager;
+import org.glassfish.tyrus.client.ClientProperties;
+import org.glassfish.tyrus.client.auth.Credentials;
 
 import javax.websocket.*;
 import java.net.URI;
@@ -12,10 +14,34 @@ public class WebSocketClient {
 
     public WebSocketClient(URI endpointURI) {
         try {
-            WebSocketContainer client = ClientManager.createClient();
+            ClientManager client = ClientManager.createClient();
+            client.getProperties().put(ClientProperties.CREDENTIALS, new Credentials("admin", "admin"));
             client.connectToServer(this, endpointURI);
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * main
+     * @param args
+     * @throws Exception
+     */
+    public static void main(String[] args) throws Exception {
+        //final WebSocketClient clientEndPoint = new WebSocketClient(new URI("ws://localhost:8080/server/myHandler"));
+          final WebSocketClient clientEndPoint = new WebSocketClient(new URI("ws://localhost:10080/drools-platform-ui/server/runtime"));
+        //clientEndPoint.
+        clientEndPoint.addMessageHandler(new MessageHandler() {
+            @Override
+            public void handleMessage(String message) {
+                System.out.println("*********************************");
+                System.out.println(message);
+                System.out.println("*********************************");
+            }
+        });
+        while (true) {
+            clientEndPoint.sendMessage("Hello "+Math.random()+" !!");
+            Thread.sleep(2000);
         }
     }
 
@@ -77,27 +103,6 @@ public class WebSocketClient {
      */
     public static interface MessageHandler {
         public void handleMessage(String message);
-    }
-
-    /**
-     * main
-     * @param args
-     * @throws Exception
-     */
-    public static void main(String[] args) throws Exception {
-        final WebSocketClient clientEndPoint = new WebSocketClient(new URI("ws://localhost:8080/server/myHandler"));
-        clientEndPoint.addMessageHandler(new MessageHandler() {
-            @Override
-            public void handleMessage(String message) {
-                System.out.println("*********************************");
-                System.out.println(message);
-                System.out.println("*********************************");
-            }
-        });
-        while (true) {
-            clientEndPoint.sendMessage("Hello "+Math.random()+" !!");
-            Thread.sleep(2000);
-        }
     }
 
 }
